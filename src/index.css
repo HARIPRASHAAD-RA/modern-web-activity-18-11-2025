@@ -1,0 +1,342 @@
+/* ===== Global Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #f4f4f5; /* CHANGED: Zinc-100 */
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+/* Smooth transitions for theme changes */
+body,
+.app-shell,
+.card {
+  transition: background-color 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ===== App Shell ===== */
+.app-shell {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top left,
+    #ccfbf1,
+    #f4f4f5 50%
+  ); /* CHANGED: Teal/Zinc gradient */
+  padding: 16px;
+  /* --- ADDED FOR CENTERING --- */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* --------------------------- */
+}
+
+/* Top nav */
+.app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.app-logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+.app-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.app-link {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #3f3f46; /* CHANGED: Zinc-700 */
+  border: 1px solid transparent;
+}
+
+.app-link:hover {
+  background-color: #e4e4e7; /* CHANGED: Zinc-200 */
+  border-color: #a1a1aa; /* CHANGED: Zinc-400 */
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+.app-link-active {
+  background-color: #14b8a6; /* CHANGED: Teal-500 */
+  color: #f0fdfa; /* CHANGED: Teal-50 */
+}
+
+/* ===== Layout wrapper ===== */
+.app-main {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+/* ===== Card ===== */
+.card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.1); /* CHANGED: Teal shadow */
+  border: 1px solid #e4e4e7; /* CHANGED: Zinc-200 */
+}
+
+/* Sections inside dashboard */
+.section {
+  margin-bottom: 16px;
+}
+
+/* Grid for info items */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 18px;
+  margin-top: 12px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #a1a1aa; /* CHANGED: Zinc-400 */
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+/* ===== Form controls ===== */
+input,
+select,
+button {
+  font-family: inherit;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db; /* CHANGED: Zinc-300 */
+  font-size: 0.9rem;
+  background-color: #ffffff; /* CHANGED: White */
+  color: #18181b; /* CHANGED: Zinc-900 */
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: 2px solid #14b8a6; /* CHANGED: Teal-500 */
+  outline-offset: 1px;
+  border-color: transparent;
+  background-color: #ffffff;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Checkbox / radio line */
+.field-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(135deg, #14b8a6, #0f766e); /* CHANGED: Teal gradient */
+  color: #f9fafb;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 8px 18px rgba(20, 184, 166, 0.3); /* CHANGED: Teal shadow */
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #18181b; /* CHANGED: Zinc-900 */
+  border-color: #d1d5db; /* CHANGED: Zinc-300 */
+}
+
+.btn-secondary:hover {
+  background: #f4f4f5; /* CHANGED: Zinc-100 */
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ===== Dashboard header / tabs ===== */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.dashboard-tabs {
+  display: inline-flex;
+  background-color: rgba(20, 184, 166, 0.1); /* CHANGED: Teal-bg */
+  padding: 2px;
+  border-radius: 999px;
+  gap: 4px;
+}
+
+.dashboard-tab {
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #3f3f46; /* CHANGED: Zinc-700 */
+}
+
+.dashboard-tab-active {
+  background-color: #14b8a6; /* CHANGED: Teal-500 */
+  color: #f9fafb;
+}
+
+/* ===== Notifications ===== */
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.notification-item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e4e4e7; /* CHANGED: Zinc-200 */
+  background-color: #ffffff; /* CHANGED: White */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notification-item-unread {
+  border-color: #14b8a6; /* CHANGED: Teal-500 */
+  background: #f0fdfa; /* CHANGED: Teal-50 */
+}
+
+.notification-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: #a1a1aa; /* CHANGED: Zinc-400 */
+}
+
+.notification-body {
+  font-size: 0.85rem;
+  color: #3f3f46; /* CHANGED: Zinc-700 */
+  margin-top: 2px;
+}
+
+/* ===== Dark Mode overrides (body has class .dark) ===== */
+body.dark {
+  background-color: #09090b; /* CHANGED: Zinc-950 */
+  color: #e4e4e7; /* CHANGED: Zinc-200 */
+}
+
+body.dark .app-logo {
+  color: #e4e4e7; /* CHANGED: Zinc-200 */
+}
+
+body.dark .app-link {
+  color: #e4e4e7; /* CHANGED: Zinc-200 */
+}
+
+body.dark .app-link:hover {
+  background-color: rgba(228, 228, 231, 0.1); /* CHANGED: Zinc-200@10% */
+  color: #f9fafb;
+}
+
+body.dark .app-link-active {
+  background-color: #14b8a6; /* CHANGED: Teal-500 */
+  color: #f0fdfa; /* CHANGED: Teal-50 */
+}
+
+body.dark .card {
+  background-color: #18181b; /* CHANGED: Zinc-900 */
+  border-color: #3f3f46; /* CHANGED: Zinc-700 */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+body.dark .info-label {
+  color: #a1a1aa; /* CHANGED: Zinc-400 */
+}
+
+body.dark .info-value {
+  color: #e4e4e7; /* CHANGED: Zinc-200 */
+}
+
+body.dark .input,
+body.dark .select,
+body.dark .textarea {
+  background-color: #09090b; /* CHANGED: Zinc-950 */
+  color: #e4e4e7; /* CHANGED: Zinc-200 */
+  border-color: #3f3f46; /* CHANGED: Zinc-700 */
+}
+
+body.dark .notification-item {
+  background-color: #18181b; /* CHANGED: Zinc-900 */
+  border-color: #3f3f46; /* CHANGED: Zinc-700 */
+}
+
+body.dark .notification-item-unread {
+  background-color: #18181b; /* CHANGED: Zinc-900 */
+  border-color: #14b8a6; /* CHANGED: Teal-500 */
+}
